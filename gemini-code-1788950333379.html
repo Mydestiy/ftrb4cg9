@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài Kiểm Tra Tiếng Anh Tương Tác - Ms Lê Hằng English</title>
+  <!-- Google Fonts: Poster Style (Fredoka & Paytone One) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Paytone+One&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-pink: #ff6b8b;
+      --primary-pink-dark: #d84315;
+      --pastel-pink-bg: #fff0f5;
+      --pastel-purple-hl: #a855f7;
+      --accent-green: #00d26a;
+      --accent-red: #ff4757;
+      --accent-yellow: #fdcb6e;
+      --bg-gradient-1: #ffb6c1;
+      --bg-gradient-2: #ff80bf;
+      --bg-gradient-3: #a855f7;
+      --bg-gradient-4: #fda4af;
+      --card-bg: rgba(255, 255, 255, 0.97);
+      --card-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      --btn-shadow: 0 6px 0px rgba(0,0,0,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    ::selection {
+      background-color: var(--pastel-purple-hl) !important;
+      color: #ffffff !important;
+    }
+
+    body {
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(-45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.25) 15%, transparent 15%), 
+                        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='30' font-size='22'%3E🎁%3C/text%3E%3Ctext x='70' y='85' font-size='22'%3E🏡%3C/text%3E%3Ctext x='80' y='30' font-size='20'%3E🌸%3C/text%3E%3Ctext x='15' y='95' font-size='20'%3E⭐%3C/text%3E%3Ctext x='45' y='60' font-size='18'%3E🎏%3C/text%3E%3C/svg%3E");
+      color: #2d3436;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+      z-index: 100;
+      border-bottom: 4px solid #ffb6c1;
+    }
+
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff0f5;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 3px solid #ffb6c1;
+      box-shadow: var(--btn-shadow);
+    }
+
+    .brand-badge h1 {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1rem;
+      color: #ff3366;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .timer-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      padding: 6px 14px;
+      border-radius: 22px;
+      border: 3px solid var(--primary-pink);
+      box-shadow: var(--btn-shadow);
+    }
+
+    .timer-display {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.2rem;
+      color: #ff3366;
+      min-width: 55px;
+      text-align: center;
+    }
+
+    .btn-gamified {
+      font-family: 'Paytone One', 'Fredoka', sans-serif;
+      background: var(--primary-pink);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: var(--btn-shadow);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-gamified:hover {
+      transform: translateY(-3px);
+      background: #ff4757;
+    }
+
+    .btn-gamified:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0px rgba(0,0,0,0.15);
+    }
+
+    .btn-submit-main {
+      background: var(--accent-green);
+    }
+
+    .progress-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 150px;
+    }
+
+    .progress-bar-bg {
+      flex: 1;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #fff;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #fdcb6e, #00d26a);
+      transition: width 0.4s ease;
+    }
+
+    .progress-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .passage-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(255,255,255,0.9);
+      padding: 5px;
+      border-radius: 16px;
+    }
+
+    .tab-btn {
+      font-family: 'Fredoka', sans-serif;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: #64748b;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #ff3366;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
+
+    .main-container {
+      flex: 1;
+      display: flex;
+      gap: 18px;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .split-pane {
+      flex: 1;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 22px;
+      overflow-y: auto;
+      box-shadow: var(--card-shadow);
+      border: 4px solid rgba(255, 255, 255, 0.95);
+      position: relative;
+    }
+
+    .passage-title {
+      font-family: 'Paytone One', cursive, sans-serif;
+      font-size: 1.25rem;
+      color: #ff3366;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 4px dashed #ffb6c1;
+      letter-spacing: 0.5px;
+    }
+
+    .paragraph-block {
+      margin-bottom: 18px;
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      border-left: 5px solid var(--primary-pink);
+    }
+
+    .paragraph-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .translate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f0f3ff;
+      color: #4f46e5;
+      border: 2px solid #c7d2fe;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .translate-btn:hover {
+      background: #e0e7ff;
+    }
+
+    .translation-content {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 12px;
+      border-left: 4px solid #6366f1;
+      font-size: 0.95rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    .translation-content.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .evidence-highlight {
+      background-color: #fef08a !important;
+      color: #000 !important;
+      box-shadow: 0 0 12px #fde047;
+      border-radius: 6px;
+      padding: 2px 6px;
+      animation: pulseGlow 1.2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    .glossary-box {
+      margin-top: 25px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
+      border: 3px solid #f1f5f9;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .glossary-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 1.05rem;
+      color: #ff3366;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .glossary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .glossary-table th, .glossary-table td {
+      padding: 10px;
+      border-bottom: 1px solid #edf2f7;
+      text-align: left;
+    }
+
+    .glossary-table th {
+      background: #fff0f5;
+      color: #ff3366;
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+      border: 3px solid #f1f5f9;
+    }
+
+    .question-number {
+      display: inline-block;
+      font-family: 'Paytone One', sans-serif;
+      background: #fff0f5;
+      color: #ff3366;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      border: 2px solid #ffb6c1;
+    }
+
+    .question-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #f8fafc;
+      border: 3px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 0px #e2e8f0;
+    }
+
+    .option-btn:hover {
+      background: #f1f5f9;
+      transform: translateX(4px);
+    }
+
+    .option-btn.correct {
+      background: #dcfce7 !important;
+      border-color: var(--accent-green) !important;
+      color: #15803d !important;
+      font-weight: 700;
+      box-shadow: 0 3px 0px var(--accent-green);
+    }
+
+    .option-btn.wrong {
+      background: #ffe4e6 !important;
+      border-color: var(--accent-red) !important;
+      color: #b91c1c !important;
+      box-shadow: 0 3px 0px var(--accent-red);
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+
+    .explanation-box {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 3px dashed #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .explanation-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .exp-item {
+      margin-bottom: 8px;
+    }
+
+    .exp-title {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 0.88rem;
+      color: #0f172a;
+    }
+
+    .locate-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: #fef08a;
+      color: #854d0e;
+      border: 2px solid #fde047;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .locate-btn:hover {
+      background: #fde047;
+      transform: scale(1.03);
+    }
+
+    /* Rendered Notices for Signs */
+    .sign-card-box {
+      background: #ffffff;
+      border: 3px solid #000000;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      width: 280px;
+      margin: 0 auto 16px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .sign-card-box .header-red {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 900;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .sign-card-box .body-text {
+      font-size: 1rem;
+      font-weight: 900;
+      color: #000000;
+      line-height: 1.4;
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px;
+      width: 90%;
+      max-width: 460px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      border: 5px solid var(--primary-pink);
+    }
+
+    .modal-score {
+      font-family: 'Paytone One', sans-serif;
+      font-size: 2.8rem;
+      color: #ff3366;
+      margin: 12px 0;
+    }
+
+    .modal-comment {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 850px) {
+      .main-container {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      body { overflow: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <header>
+    <div class="brand-badge">
+      <span>👩‍🏫</span>
+      <h1>Ms Lê Hằng English</h1>
+    </div>
+
+    <!-- 3 Strictly Isolated Tabs -->
+    <div class="passage-tabs">
+      <button class="tab-btn active" onclick="switchPassage(1)">Biển báo & Thông báo (Q29-30) 🚪</button>
+      <button class="tab-btn" onclick="switchPassage(2)">Pursuing Passions (Q31-36) ❤️</button>
+      <button class="tab-btn" onclick="switchPassage(3)">Vietnamese Life (Q37-40) 🌾</button>
+    </div>
+
+    <div class="timer-container">
+      <button class="btn-gamified" id="timer-toggle-btn" onclick="toggleTimer()">⏱️ BẮT ĐẦU TÍNH GIỜ</button>
+      <span class="timer-display" id="timer-display">20:00</span>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+      <span class="progress-text" id="progress-text">0%</span>
+    </div>
+
+    <button class="btn-gamified btn-submit-main" onclick="submitTest()">🏆 NỘP BÀI</button>
+  </header>
+
+  <main class="main-container">
+    <div class="split-pane" id="reading-pane"></div>
+    <div class="split-pane" id="exercise-pane"></div>
+  </main>
+
+  <div class="modal-overlay" id="result-modal">
+    <div class="modal-card">
+      <h2 style="font-family:'Paytone One', sans-serif; color:#ff3366;">🎉 KẾT QUẢ BÀI THI 🎉</h2>
+      <div class="modal-score" id="score-text">0 / 0</div>
+      <div class="modal-comment" id="comment-text">Cố lên nhé!</div>
+      <button class="btn-gamified" onclick="closeModal()">Đóng & Xem Lại</button>
+    </div>
+  </div>
+
+  <script>
+    // Strictly separated exercise data structure (1 key per tab, no cross contamination)
+    const passagesData = {
+      1: {
+        title: "Part 1: Read the following sign or notice and answer Questions 29 & 30",
+        paragraphs: [
+          {
+            id: "p1_q29_sign",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:8px;'>Notice for Question 29</h4>" +
+                  "<div class='sign-card-box' id='ev_q29'><div class='header-red'>NO EXIT</div><div class='body-text'>The door isn't working correctly.<br><br><strong>Use door opposite to get to the science room.</strong></div></div>",
+            translation: "Thông báo 1: KHÔNG CÓ LỐI RA - Cánh cửa này đang không hoạt động bình thường. Vui lòng sử dụng cửa đối diện để đi đến phòng khoa học."
+          },
+          {
+            id: "p1_q30_notice",
+            text: "<h4 style='font-family:Paytone One; color:#ff3366; margin-bottom:8px;'>Sign for Question 30</h4>" +
+                  "<div class='sign-card-box' id='ev_q30'><div class='header-red'>NOTICE</div><div class='body-text'>💵 <strong>Cash Only</strong><br><small>THANK YOU</small></div></div>",
+            translation: "Thông báo 2: CHỈ THU TIỀN MẶT - Cảm ơn quý khách."
+          }
+        ],
+        glossary: [
+          { word: "Exit (n)", type: "Noun", meaning: "Lối ra", synonym: "Way out / Egress" },
+          { word: "Opposite (adj)", type: "Adj", meaning: "Đối diện", synonym: "Facing / Across from" },
+          { word: "Cash (n)", type: "Noun", meaning: "Tiền mặt", synonym: "Paper money / Currency" },
+          { word: "Laboratory (n)", type: "Noun", meaning: "Phòng thí nghiệm", synonym: "Lab / Research room" }
+        ],
+        questions: [
+          {
+            id: "q29",
+            type: "mcq",
+            question: "Question 29. What does the notice say?",
+            options: [
+              "A. Please go to the science room now.",
+              "B. You can't go out through this door.",
+              "C. The science laboratory is being used by other people today.",
+              "D. There is no exit in the science room."
+            ],
+            answer: "B. You can't go out through this door.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Thông báo 'NO EXIT - The door isn't working correctly' có ý nghĩa gì?",
+              optionsAnalysis: [
+                "A. Please go to the science room now. (Vui lòng đi đến phòng khoa học ngay bây giờ.)",
+                "B. You can't go out through this door. (Bạn không thể đi ra ngoài qua cánh cửa này.)",
+                "C. The science laboratory is being used by other people today. (Phòng thí nghiệm khoa học hôm nay đang được người khác sử dụng.)",
+                "D. There is no exit in the science room. (Không có lối ra trong phòng khoa học.)"
+              ],
+              whyCorrect: "Cụm 'NO EXIT' kết hợp với 'The door isn't working correctly' có nghĩa là cửa hỏng, không dùng làm lối ra được = 'You can't go out through this door'.",
+              whyWrong: "A và C sai vì biển không yêu cầu đi ngay hay báo phòng bận; D hiểu sai vị trí lối ra.",
+              evidenceId: "ev_q29"
+            }
+          },
+          {
+            id: "q30",
+            type: "mcq",
+            question: "Question 30. What does the sign mean?",
+            options: [
+              "A. She is out of cash.",
+              "B. We only accept payment in cash.",
+              "C. The shop charges less if the customer don't pay in cash.",
+              "D. Please exchange money here."
+            ],
+            answer: "B. We only accept payment in cash.",
+            explanationType: "vocab_grammar",
+            explanation: {
+              translation: "Biển báo 'Cash Only' có ý nghĩa gì?",
+              optionsAnalysis: [
+                "A. She is out of cash. (Cô ấy hết tiền mặt rồi.)",
+                "B. We only accept payment in cash. (Chúng tôi chỉ chấp nhận thanh toán bằng tiền mặt.)",
+                "C. The shop charges less if the customer don't pay in cash. (Cửa hàng tính phí ít hơn nếu khách không trả bằng tiền mặt.)",
+                "D. Please exchange money here. (Vui lòng đổi tiền tại đây.)"
+              ],
+              whyCorrect: "Cụm 'Cash Only' có nghĩa là chỉ nhận thanh toán bằng tiền mặt = 'We only accept payment in cash'.",
+              whyWrong: "A, C, D đều không đúng ý nghĩa của biển thông báo thanh toán.",
+              evidenceId: "ev_q30"
+            }
+          }
+        ]
+      },
+      2: {
+        title: "Part 2: Read the following passage and answer Questions 31 to 36",
+        paragraphs: [
+          {
+            id: "p2_passage",
+            text: "<p class='paragraph-text'>" +
+                  "Have you ever felt so passionate about something that you couldn't stop thinking about it? That overwhelming feeling of excitement and <span id='ev_q36' class='evidence-target'>dedication</span> is what makes following your passions so <span id='ev_q35' class='evidence-target'>rewarding</span>. For teenagers, discovering their passions can be a significant step towards a fulfilling future.<br><br>" +
+                  "Passions can take many forms. It could be a love for music and <span id='ev_q32' class='evidence-target'>playing an instrument</span>, a fascination with science and conducting experiments, or a talent for writing and expressing oneself creatively. When teenagers pursue their passions, they often experience a sense of purpose and motivation. They become eager to learn, <span id='ev_q34' class='evidence-target'>develop new skills, and overcome challenges</span>.<br><br>" +
+                  "However, focusing on a passion isn't always easy. There may be times when friends seem more interested in different things, or <span id='ev_q33' class='evidence-target'>family expectations</span> can seem at odds with personal aspirations. It's important to remember that <span id='ev_q31' class='evidence-target'>pursuing a passion requires commitment and perseverance</span>. There will be setbacks and moments of doubt, but the feeling of accomplishment and satisfaction from pursuing something you truly love is worth the effort." +
+                  "</p>",
+            translation: "Bạn đã bao giờ cảm thấy vô cùng đam mê điều gì đó đến mức không thể ngừng nghĩ về nó chưa? Cảm giác hào hứng và cống hiến tràn ngập đó chính là điều khiến việc theo đuổi đam mê trở nên thật bổ ích. Đối với thanh thiếu niên, việc khám phá ra đam mê của mình có thể là một bước tiến quan trọng hướng tới một tương lai trọn vẹn.<br><br>Đam mê có thể mang nhiều hình thức khác nhau. Đó có thể là tình yêu dành cho âm nhạc và chơi một nhạc cụ, sự mê hoặc với khoa học và tiến hành các thí nghiệm, hoặc tài năng viết lách và thể hiện bản thân một cách sáng tạo. Khi thanh thiếu niên theo đuổi đam mê, họ thường cảm nhận được mục đích và động lực sống. Họ trở nên khao khát học hỏi, phát triển các kỹ năng mới và vượt qua các thử thách.<br><br>Tuy nhiên, việc tập trung vào đam mê không phải lúc nào cũng dễ dàng. Có thể có những lúc bạn bè có vẻ quan tâm đến những điều khác biệt, hoặc kỳ vọng của gia đình có thể mâu thuẫn với nguyện vọng cá nhân. Điều quan trọng cần nhớ là việc theo đuổi đam mê đòi hỏi sự cam kết và tính kiên trì. Sẽ có những trở ngại và khoảnh khắc nghi ngờ, nhưng cảm giác hoàn thành và hài lòng khi theo đuổi điều bạn thực sự yêu thích hoàn toàn xứng đáng với nỗ lực bỏ ra."
+          }
+        ],
+        glossary: [
+          { word: "Passionate (adj)", type: "Adj", meaning: "Đam mê / Nhiệt huyết", synonym: "Enthusiastic / Ardent" },
+          { word: "Dedication (n)", type: "Noun", meaning: "Sự cống hiến / Tận tụy", synonym: "Commitment / Devotion" },
+          { word: "Rewarding (adj)", type: "Adj", meaning: "Bổ ích / Bõ công", synonym: "Fulfilling / Gratifying" },
+          { word: "Disappointing (adj)", type: "Adj", meaning: "Gây thất vọng (Trái nghĩa với Rewarding)", synonym: "Unsatisfying" },
+          { word: "Perseverance (n)", type: "Noun", meaning: "Sự kiên trì / Bền chí", synonym: "Persistence / Determination" },
+          { word: "Aspiration (n)", type: "Noun", meaning: "Nguyện vọng / Khát vọng", synonym: "Ambition / Goal" }
+        ],
+        questions: [
+          {
+            id: "q31",
+            type: "mcq",
+            question: "Question 31: What is the main idea of the passage?",
+            options: [
+              "A. Teenagers should focus only on their passions.",
+              "B. Pursuing passions is a challenging but rewarding experience for teenagers.",
+              "C. Teenagers should avoid distractions when pursuing their passions.",
+              "D. Passions are only about hobbies, not about careers."
+            ],
+            answer: "B. Pursuing passions is a challenging but rewarding experience for teenagers.",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. Pursuing passions is a challenging but rewarding experience for teenagers.",
+              questionContext: "Ý chính của đoạn văn là gì?",
+              passageQuote: "...makes following your passions so rewarding... However, focusing on a passion isn't always easy... pursuing a passion requires commitment and perseverance... worth the effort.",
+              quoteTranslation: "Theo đuổi đam mê rất bổ ích nhưng không dễ dàng, đòi hỏi kiên trì và vượt qua thử thách.",
+              synonyms: "challenging but rewarding experience",
+              evidenceId: "ev_q31"
+            }
+          },
+          {
+            id: "q32",
+            type: "mcq",
+            question: "Question 32: Which of the following is mentioned as an example of a passion?",
+            options: [
+              "A. Watching movies",
+              "B. Playing an instrument",
+              "C. Playing video games",
+              "D. Following trends"
+            ],
+            answer: "B. Playing an instrument",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. Playing an instrument",
+              questionContext: "Điều nào sau đây được đề cập như một ví dụ về đam mê?",
+              passageQuote: "It could be a love for music and playing an instrument...",
+              quoteTranslation: "Đó có thể là tình yêu dành cho âm nhạc và chơi một nhạc cụ...",
+              synonyms: "playing an instrument",
+              evidenceId: "ev_q32"
+            }
+          },
+          {
+            id: "q33",
+            type: "mcq",
+            question: "Question 33: What is one challenge teenagers may face while pursuing their passions?",
+            options: [
+              "A. They may not know what they are passionate about.",
+              "B. They may have too much time for their passions.",
+              "C. They may face family expectations or peer pressure.",
+              "D. They may have no support for their passions."
+            ],
+            answer: "C. They may face family expectations or peer pressure.",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. They may face family expectations or peer pressure.",
+              questionContext: "Một trong những thử thách mà thanh thiếu niên phải đối mặt khi theo đuổi đam mê là gì?",
+              passageQuote: "...there may be times when friends seem more interested in different things, or family expectations can seem at odds with personal aspirations.",
+              quoteTranslation: "...bạn bè quan tâm tới điều khác (áp lực đồng lứa) hoặc kỳ vọng gia đình mâu thuẫn với nguyện vọng cá nhân.",
+              synonyms: "friends interested in different things = peer pressure / family expectations",
+              evidenceId: "ev_q33"
+            }
+          },
+          {
+            id: "q34",
+            type: "mcq",
+            question: "Question 34: What is the importance of pursuing a passion according to the passage?",
+            options: [
+              "A. It brings immediate success and fame.",
+              "B. It allows teenagers to overcome challenges and develop new skills.",
+              "C. It guarantees that you will make money in the future.",
+              "D. It leads to avoiding family expectations."
+            ],
+            answer: "B. It allows teenagers to overcome challenges and develop new skills.",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. It allows teenagers to overcome challenges and develop new skills.",
+              questionContext: "Tầm quan trọng của việc theo đuổi đam mê theo đoạn văn là gì?",
+              passageQuote: "They become eager to learn, develop new skills, and overcome challenges.",
+              quoteTranslation: "Họ trở nên khao khát học hỏi, phát triển các kỹ năng mới và vượt qua các thử thách.",
+              synonyms: "overcome challenges and develop new skills",
+              evidenceId: "ev_q34"
+            }
+          },
+          {
+            id: "q35",
+            type: "mcq",
+            question: "Question 35. What is the OPPOSITE meaning of \"rewarding\" as used in the passage?",
+            options: [
+              "A. Satisfying",
+              "B. Fulfilling",
+              "C. Disappointing",
+              "D. Exciting"
+            ],
+            answer: "C. Disappointing",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. Disappointing",
+              questionContext: "Từ \"rewarding\" (bổ ích, đáng giá) TRÁI NGHĨA với từ nào?",
+              passageQuote: "...makes following your passions so rewarding.",
+              quoteTranslation: "...khiến việc theo đuổi đam mê trở nên thật bổ ích/xứng đáng.",
+              synonyms: "rewarding (bổ ích, thỏa mãn) >< disappointing (gây thất vọng)",
+              evidenceId: "ev_q35"
+            }
+          },
+          {
+            id: "q36",
+            type: "mcq",
+            question: "Question 36. What is the CLOSEST meaning of \"dedication\" as used in the passage?",
+            options: [
+              "A. Indifference",
+              "B. Commitment",
+              "C. Distraction",
+              "D. Hesitation"
+            ],
+            answer: "B. Commitment",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. Commitment",
+              questionContext: "Từ \"dedication\" (sự cống hiến, tận tụy) GẦN NGHĨA NHẤT với từ nào?",
+              passageQuote: "That overwhelming feeling of excitement and dedication...",
+              quoteTranslation: "Cảm giác hào hứng và cống hiến/tận tụy tràn ngập đó...",
+              synonyms: "dedication = commitment (sự cam kết, cống hiến)",
+              evidenceId: "ev_q36"
+            }
+          }
+        ]
+      },
+      3: {
+        title: "Part 3: Read the text and choose the best phrase for blanks 37 to 40",
+        paragraphs: [
+          {
+            id: "p3_text",
+            text: "<p class='paragraph-text'>" +
+                  "In the past, most Vietnamese people lived in rural areas and worked on farms. <span id='ev_q37' class='evidence-target'>(37) ________</span>. Many families lived in wooden or bamboo houses and relied on agriculture for their livelihood. Social events and festivals were important, and <span id='ev_q38' class='evidence-target'>(38) ________</span>.<br><br>" +
+                  "Today, more people live in cities like Hanoi and Ho Chi Minh City, seeking better job opportunities. <span id='ev_q39' class='evidence-target'>(39) ________</span>. Despite these changes, traditional customs, family values, and cultural celebrations remain important. The younger generation embraces <span id='ev_q40' class='evidence-target'>(40) ________</span>." +
+                  "</p>" +
+                  "<div style='background:#f8fafc; border:2px dashed #ffb6c1; border-radius:12px; padding:12px; margin-top:10px;'>" +
+                  "<strong>Tùy chọn câu/cụm từ điền (A - D):</strong><br>" +
+                  "A. Modern buildings, cars, and technology have transformed daily life<br>" +
+                  "B. new influences while still honoring their heritage<br>" +
+                  "C. Their lives were simple, with a focus on family, community, and tradition<br>" +
+                  "D. the pace of life was slow and relaxed" +
+                  "</div>",
+            translation: "Trong quá khứ, hầu hết người dân Việt Nam sống ở vùng nông thôn và làm việc trên các trang trại. Cuộc sống của họ rất đơn giản, tập trung vào gia đình, cộng đồng và truyền thống. Nhiều gia đình sống trong những ngôi nhà bằng gỗ hoặc tre và phụ thuộc vào nông nghiệp để kiếm sống. Các sự kiện xã hội và lễ hội rất quan trọng, và nhịp sống diễn ra chậm rãi, thư thái.<br><br>Ngày nay, nhiều người hơn sống ở các thành phố như Hà Nội và Thành phố Hồ Chí Minh để tìm kiếm cơ hội việc làm tốt hơn. Các tòa nhà hiện đại, xe hơi và công nghệ đã làm thay đổi cuộc sống hàng ngày. Mặc dù có những thay đổi này, các phong tục truyền thống, giá trị gia đình và các lễ kỷ niệm văn hóa vẫn giữ vai trò quan trọng. Thế hệ trẻ đón nhận những ảnh hưởng mới trong khi vẫn tôn vinh di sản của mình."
+          }
+        ],
+        glossary: [
+          { word: "Rural (adj)", type: "Adj", meaning: "Thuộc nông thôn", synonym: "Countryside / Rustic" },
+          { word: "Livelihood (n)", type: "Noun", meaning: "Kế sinh nhai", synonym: "Means of living / Subsistence" },
+          { word: "Transform (v)", type: "Verb", meaning: "Biến đổi / Thay đổi", synonym: "Convert / Alter" },
+          { word: "Embrace (v)", type: "Verb", meaning: "Đón nhận / Đón đọc", synonym: "Welcome / Accept" },
+          { word: "Heritage (n)", type: "Noun", meaning: "Di sản văn hóa", synonym: "Legacy / Tradition" }
+        ],
+        questions: [
+          {
+            id: "q37",
+            type: "mcq",
+            question: "Question 37. Choose the correct option for blank (37):",
+            options: [
+              "A. Modern buildings, cars, and technology have transformed daily life",
+              "B. new influences while still honoring their heritage",
+              "C. Their lives were simple, with a focus on family, community, and tradition",
+              "D. the pace of life was slow and relaxed"
+            ],
+            answer: "C. Their lives were simple, with a focus on family, community, and tradition",
+            explanationType: "reading",
+            explanation: {
+              answer: "C. Their lives were simple, with a focus on family, community, and tradition",
+              questionContext: "Mô tả bức tranh cuộc sống trong quá khứ của người nông dân Việt Nam.",
+              passageQuote: "In the past, most Vietnamese people lived in rural areas and worked on farms. (37) Their lives were simple, with a focus on family, community, and tradition.",
+              quoteTranslation: "Trong quá khứ, hầu hết người dân sống ở nông thôn... Cuộc sống của họ rất đơn giản, tập trung vào gia đình, cộng đồng và truyền thống.",
+              synonyms: "rural areas -> lives were simple",
+              evidenceId: "ev_q37"
+            }
+          },
+          {
+            id: "q38",
+            type: "mcq",
+            question: "Question 38. Choose the correct option for blank (38):",
+            options: [
+              "A. Modern buildings, cars, and technology have transformed daily life",
+              "B. new influences while still honoring their heritage",
+              "C. Their lives were simple, with a focus on family, community, and tradition",
+              "D. the pace of life was slow and relaxed"
+            ],
+            answer: "D. the pace of life was slow and relaxed",
+            explanationType: "reading",
+            explanation: {
+              answer: "D. the pace of life was slow and relaxed",
+              questionContext: "Bổ sung thông tin cho nhịp sống thời xưa sau liên từ 'and'.",
+              passageQuote: "Social events and festivals were important, and (38) the pace of life was slow and relaxed.",
+              quoteTranslation: "Các sự kiện xã hội và lễ hội rất quan trọng, và nhịp sống diễn ra chậm rãi, thư thái.",
+              synonyms: "pace of life was slow and relaxed",
+              evidenceId: "ev_q38"
+            }
+          },
+          {
+            id: "q39",
+            type: "mcq",
+            question: "Question 39. Choose the correct option for blank (39):",
+            options: [
+              "A. Modern buildings, cars, and technology have transformed daily life",
+              "B. new influences while still honoring their heritage",
+              "C. Their lives were simple, with a focus on family, community, and tradition",
+              "D. the pace of life was slow and relaxed"
+            ],
+            answer: "A. Modern buildings, cars, and technology have transformed daily life",
+            explanationType: "reading",
+            explanation: {
+              answer: "A. Modern buildings, cars, and technology have transformed daily life",
+              questionContext: "Nói về sự thay đổi của thành thị ngày nay.",
+              passageQuote: "Today, more people live in cities like Hanoi and Ho Chi Minh City, seeking better job opportunities. (39) Modern buildings, cars, and technology have transformed daily life.",
+              quoteTranslation: "Ngày nay nhiều người sống ở thành phố... Các tòa nhà hiện đại, xe hơi và công nghệ đã làm thay đổi cuộc sống hàng ngày.",
+              synonyms: "cities -> modern buildings, cars, technology transformed daily life",
+              evidenceId: "ev_q39"
+            }
+          },
+          {
+            id: "q40",
+            type: "mcq",
+            question: "Question 40. Choose the correct option for blank (40):",
+            options: [
+              "A. Modern buildings, cars, and technology have transformed daily life",
+              "B. new influences while still honoring their heritage",
+              "C. Their lives were simple, with a focus on family, community, and tradition",
+              "D. the pace of life was slow and relaxed"
+            ],
+            answer: "B. new influences while still honoring their heritage",
+            explanationType: "reading",
+            explanation: {
+              answer: "B. new influences while still honoring their heritage",
+              questionContext: "Động từ 'embraces' đi kèm tân ngữ phù hợp nói về thái độ thế hệ trẻ.",
+              passageQuote: "The younger generation embraces (40) new influences while still honoring their heritage.",
+              quoteTranslation: "Thế hệ trẻ đón nhận những ảnh hưởng mới trong khi vẫn tôn vinh di sản của mình.",
+              synonyms: "embraces + new influences",
+              evidenceId: "ev_q40"
+            }
+          }
+        ]
+      }
+    };
+
+    let currentPassageId = 1;
+    let userAnswers = {};
+    let timerSeconds = 1200;
+    let timerInterval = null;
+    let isTimerRunning = false;
+    let isTestLocked = false;
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playCorrectSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.3);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.3);
+    }
+
+    function playWrongSound() {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+      osc.frequency.linearRampToValueAtTime(110, audioCtx.currentTime + 0.35);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.35);
+    }
+
+    function triggerConfetti() {
+      const canvas = document.getElementById('confetti-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      let particles = [];
+      const colors = ['#ff6b8b', '#00d26a', '#fdcb6e', '#00c9a7', '#a855f7', '#ff4757'];
+      
+      for (let i = 0; i < 50; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.floor(Math.random() * 10) - 10,
+          tiltAngleIncremental: Math.random() * 0.07 + 0.05,
+          tiltAngle: 0
+        });
+      }
+
+      let step = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.lineWidth = p.r;
+          ctx.strokeStyle = p.color;
+          ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+          ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+          ctx.stroke();
+        });
+        update();
+        step++;
+        if (step < 90) requestAnimationFrame(draw);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function update() {
+        particles.forEach((p) => {
+          p.tiltAngle += p.tiltAngleIncremental;
+          p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+          p.tilt = Math.sin(p.tiltAngle) * 15;
+        });
+      }
+      draw();
+    }
+
+    function shuffleArray(array) {
+      let arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function toggleTimer() {
+      const btn = document.getElementById('timer-toggle-btn');
+      if (isTimerRunning) {
+        clearInterval(timerInterval);
+        isTimerRunning = false;
+        btn.innerText = "▶️ TIẾP TỤC TÍNH GIỜ";
+      } else {
+        isTimerRunning = true;
+        btn.innerText = "⏸️ TẠM DỪNG TÍNH GIỜ";
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            isTestLocked = true;
+            alert("⏰ Đã hết giờ làm bài, vui lòng nộp bài nhé!");
+            disableAllInputs();
+          }
+        }, 1000);
+      }
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timerSeconds / 60);
+      const secs = timerSeconds % 60;
+      document.getElementById('timer-display').innerText = 
+        `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function disableAllInputs() {
+      document.querySelectorAll('button, select, input').forEach(el => {
+        if (!el.classList.contains('btn-submit-main') && el.id !== 'timer-toggle-btn') {
+          el.disabled = true;
+        }
+      });
+    }
+
+    function renderLeftPane(passageId) {
+      const pData = passagesData[passageId];
+      const readingPane = document.getElementById('reading-pane');
+      let html = `<div class="passage-title">${pData.title}</div>`;
+
+      pData.paragraphs.forEach((p) => {
+        html += `
+          <div class="paragraph-block">
+            <div class="paragraph-text">${p.text}</div>
+            <button class="translate-btn" onclick="toggleTranslation('${p.id}')">🌟 BẢN DỊCH ĐẦY ĐỦ</button>
+            <div class="translation-content" id="trans-${p.id}">${p.translation}</div>
+          </div>
+        `;
+      });
+
+      if (pData.glossary && pData.glossary.length > 0) {
+        html += `
+          <div class="glossary-box">
+            <div class="glossary-title">📚 Bảng Từ Vựng Academic (B2-C2) & Từ Đồng Nghĩa</div>
+            <table class="glossary-table">
+              <thead>
+                <tr>
+                  <th>Từ vựng</th>
+                  <th>Loại từ</th>
+                  <th>Nghĩa tiếng Việt</th>
+                  <th>Từ đồng nghĩa</th>
+                </tr>
+              </thead>
+              <tbody>
+        `;
+        pData.glossary.forEach(g => {
+          html += `
+            <tr>
+              <td><strong>${g.word}</strong></td>
+              <td><em>${g.type}</em></td>
+              <td>${g.meaning}</td>
+              <td><code>${g.synonym}</code></td>
+            </tr>
+          `;
+        });
+        html += `</tbody></table></div>`;
+      }
+
+      readingPane.innerHTML = html;
+    }
+
+    function renderRightPane(passageId) {
+      const pData = passagesData[passageId];
+      const exercisePane = document.getElementById('exercise-pane');
+      let html = "";
+
+      pData.questions.forEach((q, idx) => {
+        html += `<div class="question-card" id="card-${q.id}">`;
+        html += `<span class="question-number">Câu ${idx + 1}</span>`;
+
+        html += `<div class="question-text">${q.question}</div>`;
+
+        if (q.type === 'mcq') {
+          const shuffledOpts = shuffleArray(q.options);
+          html += `<div class="options-grid">`;
+          shuffledOpts.forEach((opt) => {
+            html += `
+              <button class="option-btn" id="opt-${q.id}-${cleanStr(opt)}" onclick="checkMCQ('${q.id}', '${escapeQuotes(opt)}')">
+                <span>${opt}</span>
+              </button>
+            `;
+          });
+          html += `</div>`;
+        }
+
+        html += `<div class="explanation-box" id="exp-${q.id}">`;
+        if (q.explanationType === 'vocab_grammar') {
+          html += `
+            <div class="exp-item"><span class="exp-title">1. Dịch câu hỏi / biển báo:</span> ${q.explanation.translation}</div>
+            <div class="exp-item"><span class="exp-title">2. Phân tích các đáp án:</span>
+              <ul style="margin-left:20px; margin-top:4px; list-style-type:circle;">
+                ${q.explanation.optionsAnalysis.map(optStr => `<li>${optStr}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="exp-item" style="margin-top:6px;"><span class="exp-title">3. Tại sao chọn đáp án đúng?</span> ${q.explanation.whyCorrect}</div>
+            <div class="exp-item"><span class="exp-title">4. Tại sao các đáp án còn lại SAI?</span> ${q.explanation.whyWrong}</div>
+            ${q.explanation.evidenceId ? `<button class="locate-btn" onclick="locateEvidence('${q.explanation.evidenceId}')">📍 Vị trí dẫn chứng trong bài</button>` : ''}
+          `;
+        } else if (q.explanationType === 'reading') {
+          html += `
+            <div class="exp-item"><span class="exp-title">(1) ĐÁP ÁN:</span> <strong style="color: var(--accent-green);">${q.explanation.answer}</strong></div>
+            <div class="exp-item"><span class="exp-title">(2) ĐOẠN CHỨA ĐÁP ÁN:</span> "${q.explanation.passageQuote}"</div>
+            <div class="exp-item"><span class="exp-title">(3) DỊCH NGHĨA:</span> ${q.explanation.quoteTranslation}</div>
+            <div class="exp-item"><span class="exp-title">(4) TỪ ĐỒNG NGHĨA / PHÂN TÍCH:</span> <code>${q.explanation.synonyms}</code></div>
+            <button class="locate-btn" onclick="locateEvidence('${q.explanation.evidenceId}')">📍 Vị trí dẫn chứng trong bài</button>
+          `;
+        }
+        html += `</div></div>`;
+      });
+
+      exercisePane.innerHTML = html;
+    }
+
+    function checkMCQ(qId, selectedOpt) {
+      if (isTestLocked) return;
+      const q = findQuestion(qId);
+      const isCorrect = selectedOpt === q.answer;
+      userAnswers[qId] = isCorrect;
+
+      q.options.forEach(opt => {
+        const btn = document.getElementById(`opt-${qId}-${cleanStr(opt)}`);
+        if (btn) {
+          btn.disabled = true;
+          if (opt === q.answer) {
+            btn.classList.add('correct');
+          } else if (opt === selectedOpt) {
+            btn.classList.add('wrong');
+          }
+        }
+      });
+
+      handleAnswerResult(qId, isCorrect);
+    }
+
+    function handleAnswerResult(qId, isCorrect) {
+      const expBox = document.getElementById(`exp-${qId}`);
+      if (expBox) expBox.classList.add('show');
+
+      if (isCorrect) {
+        playCorrectSound();
+        triggerConfetti();
+      } else {
+        playWrongSound();
+      }
+
+      updateProgressBar();
+    }
+
+    function locateEvidence(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.add('evidence-highlight');
+      setTimeout(() => {
+        el.classList.remove('evidence-highlight');
+      }, 3500);
+    }
+
+    function toggleTranslation(pId) {
+      const el = document.getElementById(`trans-${pId}`);
+      if (el) el.classList.toggle('show');
+    }
+
+    function switchPassage(pNum) {
+      currentPassageId = pNum;
+      document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', (idx + 1) === pNum);
+      });
+      renderLeftPane(pNum);
+      renderRightPane(pNum);
+      updateProgressBar();
+    }
+
+    function updateProgressBar() {
+      let totalQuestions = 0;
+      Object.keys(passagesData).forEach(pKey => {
+        totalQuestions += passagesData[pKey].questions.length;
+      });
+
+      const answeredCount = Object.keys(userAnswers).length;
+      const percentage = Math.round((answeredCount / totalQuestions) * 100);
+
+      document.getElementById('progress-fill').style.width = `${percentage}%`;
+      document.getElementById('progress-text').innerText = `${percentage}%`;
+    }
+
+    function submitTest() {
+      let totalQuestions = 0;
+      let correctCount = 0;
+
+      Object.keys(passagesData).forEach(pKey => {
+        passagesData[pKey].questions.forEach(q => {
+          totalQuestions++;
+          if (userAnswers[q.id] === true) {
+            correctCount++;
+          }
+        });
+      });
+
+      const scoreText = `${correctCount} / ${totalQuestions}`;
+      document.getElementById('score-text').innerText = scoreText;
+
+      let comment = "Cố lên nhé! Hãy đọc lại các phần giải thích chi tiết để nắm chắc kiến thức!";
+      const ratio = correctCount / totalQuestions;
+      if (ratio === 1) {
+        comment = "🌟 THIÊN TÀI! Bạn xuất sắc đạt 100% điểm số!";
+      } else if (ratio >= 0.7) {
+        comment = "🎉 LÀM TỐT LẮM! Kỹ năng làm bài của bạn rất ấn tượng!";
+      }
+
+      document.getElementById('comment-text').innerText = comment;
+      document.getElementById('result-modal').classList.add('show');
+      triggerConfetti();
+    }
+
+    function closeModal() {
+      document.getElementById('result-modal').classList.remove('show');
+    }
+
+    function findQuestion(qId) {
+      for (let pKey in passagesData) {
+        const found = passagesData[pKey].questions.find(q => q.id === qId);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    function cleanStr(str) {
+      return str.replace(/[^a-zA-Z0-9]/g, '');
+    }
+
+    function escapeQuotes(str) {
+      return str.replace(/'/g, "\\'");
+    }
+
+    window.onload = () => {
+      renderLeftPane(1);
+      renderRightPane(1);
+      updateProgressBar();
+    };
+  </script>
+</body>
+</html>
